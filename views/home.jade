@@ -1,0 +1,35 @@
+extends layout
+
+block toolbar
+    md-toolbar.md-whiteframe-3dp(set-class-when-at-top="fix-to-top")
+        .md-toolbar-tools
+            md-button.md-icon-button(aria-label="Open demo menu",ng-click="toggleLeft()")
+                md-icon.zmdi.zmdi-menu.zmdi-hc-2x
+
+            span(flex)
+            span.md-subhead #{user.displayName}
+            md-menu(md-position-mode="target-right target")
+                md-button.md-fab.md-mini(aria-label="Open demo menu",ng-click="$mdOpenMenu($event)")
+                    img(src="#{user.image}",height="40px",width="40px")
+                md-menu-content(width="4")
+                    md-menu-item(ng-repeat="item in [1, 2, 3]")
+                        md-button(aria-label="Open demo menu")
+                            div(layout="row",flex)
+                                p(flex) Option [[item]]
+
+block maincontent
+    div(layout="column")
+        section(layout="row",flex="")
+            md-sidenav#sidebar.md-sidenav-left(md-component-id="left",md-is-locked-open="$mdMedia('gt-md')",md-disable-backdrop,style={"margin-top": "3px"})
+                md-list
+                    each friend in friends
+                        md-list-item.md-2-line(ng-click="alert('hii')")
+                            img.md-avatar(ng-src="#{friend.image}")
+                            div.md-list-item-text
+                                h3 #{friend.displayName}
+                                p #{friend.city}
+                        md-divider
+
+            md-content#fixedmd(flex,layout-padding,ng-class="marginclass")
+                div.col-md-10.col-md-offset-2
+                    h1 Hello

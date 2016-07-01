@@ -1,0 +1,26 @@
+extends layout
+block toolbar
+    md-toolbar.md-whiteframe-3dp(set-class-when-at-top="fix-to-top")
+        .md-toolbar-tools
+
+block maincontent
+    .content.col-md-12
+        .col-md-4.col-md-offset-4
+            md-card.centercard(ng-animate="animate",ng-controller="logincontroller")
+                md-card-content(style={padding: "28px"})
+                    form(method="POST",action="/login")
+                        md-input-container(md-no-float).md-block
+                            md-icon.zmdi.zmdi-account.zmdi-hc-2x
+                            input(ng-model="username",type="text",placeholder="Username",name="username")
+                        md-input-container(md-no-float).md-block
+                            md-icon.zmdi.zmdi-lock.zmdi-hc-2x
+                            input(ng-model="password",type="password",placeholder="password",name="password")
+
+                        div
+                            md-checkbox(ng-model="remember",style={
+                                "margin-left": "35px",
+                                "margin-top": "10px"
+                            }) Remember me
+                            md-button.pull-right.md-raised.md-primary(type="submit") Login
+
+

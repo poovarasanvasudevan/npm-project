@@ -1,0 +1,25 @@
+doctype
+html
+    head
+        title #{title} - My Site
+        link(rel='stylesheet', href='/css/style.css')
+        link(rel='stylesheet', href='/css/icons.css')
+        link(rel='stylesheet', href='/css/material.css')
+        link(rel='stylesheet', href='/css/bootstrap.css')
+        link(rel='stylesheet', href='/css/scroll.css')
+    body(ng-app='myapp' ng-controller='maincontroller',layout='row')
+        div(layout="column",layout-fill)
+            block toolbar
+
+            md-content(flex)
+                block maincontent
+
+        script(src='/js/jquery-1.10.2.js')
+        script(src='/js/angular.min.js')
+        script(src='/js/angular-animate.min.js')
+        script(src='/js/angular-aria.min.js')
+        script(src='/js/angular-material.min.js')
+        script(src='/js/qrcode.js')
+        script(src='/js/mouse.js')
+        script(src='/js/scroll.js')
+        script(src='/site/application.js')
